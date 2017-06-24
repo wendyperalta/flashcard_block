@@ -1,9 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Flashcard = require('./components/Flashcard');
+var App = require('./components/App');
 
 ReactDOM.render(
-  <Flashcard />,
+  <App />,
   document.getElementById('app')
 );
 

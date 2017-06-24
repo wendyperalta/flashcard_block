@@ -1,9 +1,8 @@
 var React = require('react');
-var Frontside = require('./Frontside');
 
-var Flashcard = React.createClass({  
-  render: function(){
-    return <Frontside />;
+var Flashcard = React.createClass({
+  render: function () {
+    return <div>Front of card</div>
   }
 });
 

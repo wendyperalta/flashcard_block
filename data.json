@@ -1,0 +1,15 @@
+[
+    {
+        "front": "Front of Card",
+        "back": "Back of Card"
+    },
+    {
+        "front": "Front of Card",
+        "back": "background-image",
+        "image": "coffee.jpg"
+    },
+    {
+        "front": "Front of Card",
+        "back": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sapien lectus, eu varius tellus pharetra non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin auctor justo at facilisis suscipit. Fusce a posuere neque."
+    }
+]
