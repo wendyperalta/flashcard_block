@@ -1,3 +1,26 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+
+.flashcard-container {
+  width: 280px;
+  height: 280px;
+  border: 1px solid #eee;
+  perspective: 800px;
+}
+
+.flashcard-front, .flashcard-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flashcard-back {
+  transform: rotateY( 180deg );
+}
+
+.flashcard-flipped {
+  transform: rotateY( 180deg );
+}

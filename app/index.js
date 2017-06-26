@@ -2,35 +2,69 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
 
-var FlashcardContent = React.createClass({
+var ClickToFlip = React.createClass({
+  render: function() {
+    return <p>Click to flip</p>
+  }
+});
+
+var BackOfFlashcard = React.createClass({
   propTypes: {
     content: PropTypes.object.isRequired
   },
 
   render: function() {
-    var currentSide = "front"; //might be a state
-    var contentToShow = currentSide == "front" ? this.props.content.front : this.props.content.back;
-    
+    var contentToShow = this.props.content.back;
+
+    return (
+      <div style={{ overflow:'scroll' }}>
+        {contentToShow}
+      </div>
+    ); 
+  }
+});
+
+var FrontOfFlashcard = React.createClass({
+  propTypes: {
+    content: PropTypes.object.isRequired
+  },
+
+  render: function() {
+    var contentToShow = this.props.content.front;
+
     return (
       <div>
         {contentToShow}
       </div>
     ); 
-
   }
 });
 
 //Displays the Flashcard
 var Flashcard = React.createClass({
   propTypes: {
-    flashcardInfo: PropTypes.object.isRequired
+    flashcardInfo: PropTypes.object.isRequired,
+  },
+
+  handleClick: function() {
+    var flashcardElement = document.getElementById("flashcard" + this.props.flashcardInfo.id);
+    var flippedClassName = "flashcard-flipped";
+    var hasFlippedClass = $(flashcardElement).hasClass(flippedClassName);
+
+    $(flashcardElement).toggleClass(flippedClassName, !hasFlippedClass);
   },
 
   render: function() {
+    var flashcardId = "flashcard" + this.props.flashcardInfo.id;
+
     return (
-      <div>
-        <FlashcardContent content={this.props.flashcardInfo}/>
-        {/*<ClickToFlip />*/}
+      <div id={flashcardId} className="flashcard-container" onClick={this.handleClick}>
+        <div className="flashcard-front">
+          <FrontOfFlashcard content={this.props.flashcardInfo}/>
+        </div>
+        <div className="flashcard-back">
+          <BackOfFlashcard content={this.props.flashcardInfo}/>
+        </div>
       </div>
     );
   }
@@ -42,16 +76,9 @@ var App = React.createClass({
     flashcardsdata: PropTypes.array.isRequired
   },
 
-  handleClick: function() {
-    console.log('flip me');
-
-  },
-
   render: function() {
     var arrayOfFlashcardElements = [];
     var listOfFlashcards = this.props.flashcardsdata;
-
-    
 
     //For each object in FLASHCARDSDATA array, create an instance of Flashcard component
     listOfFlashcards.forEach(function(flashcard){
@@ -59,8 +86,7 @@ var App = React.createClass({
         //Pass the current's flashcard information to Flashcard component
         <Flashcard 
           key={flashcard.id}
-          flashcardInfo={flashcard}
-          onClick={this.handleClick}/>
+          flashcardInfo={flashcard}/>
       );
     });
 
