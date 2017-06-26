@@ -39,12 +39,15 @@ h1 {
   transition: transform 1s;
 }
 
-.flashcard-back {
-  transform: rotateY(180deg);
+.flashcard-front {
+  border-top: 3px solid #747a7e;
+}
+
+.hide-side {
   backface-visibility: hidden;
 }
 
-.flashcard-flipped {
+.flashcard-flipped, .flashcard-back {
   transform: rotateY(180deg);
 }
 
