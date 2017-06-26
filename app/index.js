@@ -14,10 +14,14 @@ var BackOfFlashcard = React.createClass({
   },
 
   render: function() {
-    var contentToShow = this.props.content.back;
+    var typeClassName = "flashcard-content-type-" + this.props.content.type;
+    var contentToShow = this.props.content.type === "image" ? "" : this.props.content.back; 
+    var backgroundImage = {
+      backgroundImage: 'url(../' + this.props.content.back + ')',
+    };
 
     return (
-      <div style={{ overflow:'scroll' }}>
+      <div className={typeClassName} style={backgroundImage}>
         {contentToShow}
       </div>
     ); 
@@ -33,7 +37,7 @@ var FrontOfFlashcard = React.createClass({
     var contentToShow = this.props.content.front;
 
     return (
-      <div>
+      <div className="flashcard-content-type-text">
         {contentToShow}
       </div>
     ); 
@@ -59,10 +63,10 @@ var Flashcard = React.createClass({
 
     return (
       <div id={flashcardId} className="flashcard-box" onClick={this.handleClick}>
-        <div className="flashcard-front">
+        <div id={"front" + this.props.flashcardInfo.id} className="flashcard-front">
           <FrontOfFlashcard content={this.props.flashcardInfo}/>
         </div>
-        <div className="flashcard-back">
+        <div id={"back" + this.props.flashcardInfo.id} className="flashcard-back">
           <BackOfFlashcard content={this.props.flashcardInfo}/>
         </div>
       </div>
@@ -111,8 +115,7 @@ var FLASHCARDSDATA = [
         "id": 2,
         "type": "image",
         "front": "Front of Card 2",
-        "back": "background-image",
-        "image": "coffee.jpg"
+        "back": "coffee.jpg"
     },
     {
         "id": 3,

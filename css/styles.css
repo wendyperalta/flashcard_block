@@ -16,8 +16,12 @@ h1 {
 .flashcard-box {
   width: 280px;
   height: 280px;
-  border: 1px solid #eee;
-  perspective: 800px;
+  overflow: hidden;
+  box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
+  border: 1px solid #ddd;
+  transition: transform .5s cubic-bezier(.6,0,.4,1);
+  perspective: 1000px;
+  transform: scale(.9) translateZ(0);
 }
 
 .flashcard-container {
@@ -30,14 +34,39 @@ h1 {
   width: 100%;
   height: 100%;
   position: absolute;
+  font-size: 1.6em;
   transform-style: preserve-3d;
   transition: transform 1s;
 }
 
 .flashcard-back {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
 
 .flashcard-flipped {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
+}
+
+.flashcard-content-type-text {
+  text-align:center;
+  height: 280px;
+  line-height: 280px;
+  white-space: nowrap;
+}
+
+.flashcard-content-type-paragraph {
+  background-color: #fafafa;
+  overflow-y: scroll;
+  line-height: 1.5625;
+  text-align: left;
+  padding: 25px;
+  font-size: 20px;
+  height: 230px;
+}
+
+.flashcard-content-type-image {
+  background-size: cover;
+  background-position: 50% 50%;
+  height: inherit;
 }
