@@ -2,11 +2,28 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.flashcard-container {
+.app-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+  padding: 20px;
+}
+
+.flashcard-box {
   width: 280px;
   height: 280px;
   border: 1px solid #eee;
   perspective: 800px;
+}
+
+.flashcard-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .flashcard-front, .flashcard-back {

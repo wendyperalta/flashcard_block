@@ -58,7 +58,7 @@ var Flashcard = React.createClass({
     var flashcardId = "flashcard" + this.props.flashcardInfo.id;
 
     return (
-      <div id={flashcardId} className="flashcard-container" onClick={this.handleClick}>
+      <div id={flashcardId} className="flashcard-box" onClick={this.handleClick}>
         <div className="flashcard-front">
           <FrontOfFlashcard content={this.props.flashcardInfo}/>
         </div>
@@ -90,7 +90,13 @@ var App = React.createClass({
       );
     });
 
-    return <div>{arrayOfFlashcardElements}</div>;
+    return (
+      <div>
+        <div className="flashcard-container">
+          {arrayOfFlashcardElements}
+        </div>
+      </div>
+    );
   }
 });
 
