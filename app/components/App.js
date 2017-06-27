@@ -24,7 +24,7 @@ var App = React.createClass({
 
     return (
       <div>
-        <div className="flashcard-container">
+        <div className='flashcard-container'>
           {arrayOfFlashcardElements}
         </div>
       </div>

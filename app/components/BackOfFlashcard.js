@@ -7,8 +7,8 @@ var BackOfFlashcard = React.createClass({
   },
 
   render: function() {
-    var typeClassName = "flashcard-content-type-" + this.props.content.type;
-    var contentToShow = this.props.content.type === "image" ? "" : this.props.content.back; 
+    var typeClassName = 'flashcard-content-type-' + this.props.content.type;
+    var contentToShow = this.props.content.type === 'image' ? '' : this.props.content.back; 
     var backgroundImage = {
       backgroundImage: 'url(../' + this.props.content.back + ')',
     };
