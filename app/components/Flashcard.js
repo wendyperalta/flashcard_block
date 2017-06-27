@@ -1,7 +1,8 @@
 var React = require('react');
 var PropTypes = require('prop-types');
-var FrontOfFlashcard = require('./FrontOfFlashcard');
+var Flashcard = require('./FrontOfFlashcard');
 var BackOfFlashcard = require('./BackOfFlashcard');
+var FrontOfFlashcard = require('./FrontOfFlashcard');
 
 //Displays the Flashcard
 var Flashcard = React.createClass({
@@ -23,7 +24,7 @@ var Flashcard = React.createClass({
     flashcardElement.toggleClass(flippedClassName, !hasFlippedClass);
     backSide.toggleClass("hide-side", hasFlippedClass);
     frontSide.toggleClass("hide-side", !hasFlippedClass);
-    // frontSide.toggleClass("flippedClassName", !hasFlippedClass);
+    frontSide.toggleClass(flippedClassName, !hasFlippedClass);
   },
 
   render: function() {

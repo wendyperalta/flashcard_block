@@ -36,7 +36,7 @@ h1 {
   position: absolute;
   font-size: 1.6em;
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 0.5ms;
 }
 
 .flashcard-front {
