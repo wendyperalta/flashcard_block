@@ -27,7 +27,7 @@ h1 {
 .flashcard-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .flashcard-front, .flashcard-back {
@@ -72,4 +72,25 @@ h1 {
   background-size: cover;
   background-position: 50% 50%;
   height: inherit;
+}
+
+.hide-click-to-flip {
+  visibility: hidden;
+}
+
+.click-to-flip a{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 13px;
+  padding: 15px 10px;  
+  text-decoration: none;
+  font-style: italic;
+  color: #313537;
+  opacity: .2;
+  transition: opacity .3s;
+}
+
+.click-to-flip a:hover {
+    opacity: .8;
 }

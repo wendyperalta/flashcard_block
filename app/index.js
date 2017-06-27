@@ -2,12 +2,6 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var App = require('./components/App');
 
-var ClickToFlip = React.createClass({
-  render: function() {
-    return <p>Click to flip</p>
-  }
-});
-
 var FLASHCARDSDATA = [
     {
         "id": 1,
